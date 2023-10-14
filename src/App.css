@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+body {
+  /* background-color: rgb(165, 204, 166); */
+  background-image: url("https://img.freepik.com/free-photo/mesmerizing-view-fresh-green-fields-cloudy-sky_181624-49447.jpg?size=626&ext=jpg&ga=GA1.1.1456252214.1697306129&semt=ais");
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  backdrop-filter: blur(5px);
+}
+.weatherPanel {
+  height: 95vh;
+  width: 95vw;
+  background-color: rgb(213, 243, 233);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weatherItems {
+  width: 70%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 0 0 20px;
+  background-color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.weatherItems .bg-img {
+  border-radius: 20px 0 0 20px;
+  filter: blur(5px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weatherItemscontent {
+  padding-left: 100px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 0 0 20px;
+}
+.searchBar {
+  height: 50px;
+  width: 45vw;
+  margin-top: 50px;
+  border-radius: 50px;
+  border-color: rgba(0, 0, 0, 0);
+  padding-left: 40px; /* Add padding to make space for the icon */
+}
+
+.searchBar::before {
+  content: "\f002"; /* Unicode for a search icon, you may need to customize the icon */
+  font-family: "Font Awesome"; /* Use a font with the search icon, such as Font Awesome */
+  position: absolute;
+  left: 10px; /* Adjust the position of the icon */
+  top: 50%;
+  transform: translateY(-50%);
+}
+.heading {
+  font-size: 50px;
+}
+
+.cities {
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.city {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.city img {
+  height: 100px;
+  width: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+table {
+  width: 80%;
+  margin: 2px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 2px;
+}
+
+.upperRightPanel {
+  position: relative;
+  height: 95vh;
+  width: 40vw;
+  overflow: hidden;
+  border-radius: 0 20px 20px 0;
+  background-color: black;
+  box-shadow: -10px 0px 3px 0px #00000033;
+}
+
+.rightpanelcontent {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.dateTime {
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: blur(10px) opacity(0.9);
+  transform: scale(1.1);
+}
+
+.weatherDetails {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.weatherDetails h1 {
+  margin: 0px;
+  font-size: 100px;
+}
+
+.weatherDetails h2 {
+  margin: 0px;
+  font-size: 40px;
+}
+
+.weatherDetails h3 {
+  margin-top: 0px;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.celcius {
+  font-size: 50px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+* {
+  color: black;
 }
