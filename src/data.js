@@ -14,7 +14,7 @@ export const cities = [
 
   {
     cityImage: "https://www.holidify.com/images/bgImages/CHANDIGARH.jpg",
-    cityName: "Chandigadh",
+    cityName: "Chandigarh",
   },
 
   {

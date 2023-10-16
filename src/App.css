@@ -1,25 +1,28 @@
+/* Default styles for larger screens */
 body {
-  /* background-color: rgb(165, 204, 166); */
   background-image: url("https://img.freepik.com/free-photo/mesmerizing-view-fresh-green-fields-cloudy-sky_181624-49447.jpg?size=626&ext=jpg&ga=GA1.1.1456252214.1697306129&semt=ais");
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: bottom;
   backdrop-filter: blur(5px);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
 }
+
 .weatherPanel {
   height: 95vh;
   width: 95vw;
-  background-color: rgb(213, 243, 233);
+  background: linear-gradient(to bottom, #c1e0d1, #a5ccc6);
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .weatherItems {
@@ -28,47 +31,66 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 20px 0 0 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .weatherItems .bg-img {
   border-radius: 20px 0 0 20px;
   filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.weatherItems:hover .bg-img {
+  filter: blur(8px);
 }
 
 .weatherItemscontent {
-  padding-left: 100px;
+  padding: 2rem;
   position: absolute;
   z-index: 1;
   width: 100%;
   height: 100%;
   border-radius: 20px 0 0 20px;
 }
+
 .searchBar {
   height: 50px;
   width: 45vw;
-  margin-top: 50px;
-  border-radius: 50px;
-  border-color: rgba(0, 0, 0, 0);
-  padding-left: 40px; /* Add padding to make space for the icon */
+  margin-top: 20px;
+  border-radius: 25px;
+  border: 2px solid #a5ccc6;
+  padding-left: 40px;
+  background-color: transparent;
+  font-size: 18px;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .searchBar::before {
-  content: "\f002"; /* Unicode for a search icon, you may need to customize the icon */
-  font-family: "Font Awesome"; /* Use a font with the search icon, such as Font Awesome */
+  content: "\f002";
+  font-family: "Font Awesome";
   position: absolute;
-  left: 10px; /* Adjust the position of the icon */
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
+  color: #a5ccc6;
 }
+
+.searchBar:focus {
+  width: 50vw;
+  background-color: #f0f0f0;
+}
+
 .heading {
-  font-size: 50px;
+  font-size: 36px;
+  color: #333;
+  margin-top: 20px;
 }
 
 .cities {
   display: flex;
   gap: 30px;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -76,22 +98,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #a5ccc6;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.city:hover {
+  transform: scale(1.05);
 }
 
 .city img {
   height: 100px;
   width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 table {
   width: 80%;
   margin: 2px;
+  border-collapse: collapse;
 }
 
 th,
 td {
   text-align: left;
-  padding: 2px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
 }
 
 .upperRightPanel {
@@ -100,7 +139,7 @@ td {
   width: 40vw;
   overflow: hidden;
   border-radius: 0 20px 20px 0;
-  background-color: black;
+  background-color: #333;
   box-shadow: -10px 0px 3px 0px #00000033;
 }
 
@@ -112,11 +151,12 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding: 2rem;
 }
 
 .dateTime {
-  font-size: 35px;
-  color: rgb(255, 255, 255);
+  font-size: 28px;
+  color: #a5ccc6;
   font-weight: 700;
   display: flex;
   justify-content: space-around;
@@ -129,6 +169,12 @@ td {
   background-size: cover;
   filter: blur(10px) opacity(0.9);
   transform: scale(1.1);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.bg-img:hover {
+  filter: blur(12px);
+  transform: scale(1.15);
 }
 
 .weatherDetails {
@@ -139,21 +185,25 @@ td {
 .weatherDetails h1 {
   margin: 0px;
   font-size: 100px;
+  color: #fff;
 }
 
 .weatherDetails h2 {
   margin: 0px;
   font-size: 40px;
+  color: #a5ccc6;
 }
 
 .weatherDetails h3 {
   margin-top: 0px;
   font-size: 20px;
   margin-bottom: 50px;
+  color: #a5ccc6;
 }
 
 .celcius {
   font-size: 50px;
+  color: #a5ccc6;
 }
 
 .row {
@@ -163,8 +213,109 @@ td {
   padding: 10px 50px;
   font-size: 20px;
   font-weight: bold;
+  color: #a5ccc6;
 }
 
-* {
-  color: black;
+/* Responsive CSS for smaller screens (e.g., tablets and mobile devices) */
+@media (max-width: 768px) {
+  .weatherPanel {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .weatherItems {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .weatherItems .bg-img {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .weatherItems:hover .bg-img {
+    filter: blur(8px);
+    transform: scale(1.1);
+  }
+
+  .weatherItemscontent {
+    padding: 20px;
+  }
+
+  .searchBar {
+    width: 90%;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .cities {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .city {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 10px;
+    transform: scale(1);
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+    border: 2px solid #a5ccc6;
+  }
+
+  .city:hover {
+    transform: scale(1.05);
+    background-color: #a5ccc6;
+    color: #fff;
+  }
+
+  .city img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .upperRightPanel {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .dateTime {
+    font-size: 20px;
+  }
+
+  .weatherDetails h1 {
+    font-size: 60px;
+  }
+
+  .weatherDetails h2 {
+    font-size: 26px;
+  }
+
+  .weatherDetails h3 {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .celcius {
+    font-size: 30px;
+  }
+
+  .row {
+    font-size: 16px;
+  }
 }
